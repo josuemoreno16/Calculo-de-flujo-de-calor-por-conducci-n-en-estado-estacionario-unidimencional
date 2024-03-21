@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cilindro Hueco - Transferencia de Calor</title>
+    <link rel="stylesheet" type="text/css" href="Cilindro.css">
+    <style>
+        
+        body {
+
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: url('Default_coordenadas_cilindricas_en_el_calculo_de_flujo_de_calo_2.jpg') center/cover no-repeat; /* Reemplaza 'tu_imagen.jpg' con la URL de tu imagen */
+        
+            label
+            display: block
+            margin-bottom: 5px
+        }
+        input {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #resultado {
+            margin-top: 20px;
+        }  
+        
+
+        #output {
+            margin-top: 5%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cilindro Hueco - Transferencia de Calor</h1>
+
+    <label for="radio_exterior">Radio Exterior (m): </label>
+    <input type="number" id="radio_exterior" step="0.01" placeholder="Ingrese el radio exterior">
+
+    <br>
+
+    <label for="radio_interior">Radio Interior (m): </label>
+    <input type="number" id="radio_interior" step="0.01" placeholder="Ingrese el radio interior">
+
+    <br>
+
+    <label for="conductividad">Conductividad Térmica (W/m·K): </label>
+    <input type="number" id="conductividad" step="0.01" placeholder="Ingrese la conductividad térmica">
+
+    <br>
+
+    <label for="longitud">Longitud (m): </label>
+    <input type="number" id="longitud" step="0.01" placeholder="Ingrese la longitud">
+
+    <br>
+
+    <label for="temperatura_exterior">Temperatura Exterior (°C): </label>
+    <input type="number" id="temperatura_exterior" step="0.01" placeholder="Ingrese la temperatura exterior">
+
+    <br>
+
+    <label for="temperatura_interior">Temperatura Interior (°C): </label>
+    <input type="number" id="temperatura_interior" step="0.01" placeholder="Ingrese la temperatura interior">
+
+    <br>
+
+    <button onclick="calcularTransferenciaCalor()">Calcular</button>
+
+    <div id="output"></div>
+
+    <script>
+        function calcularTransferenciaCalor() {
+            // Obtener los valores ingresados por el usuario
+            const radioExterior = parseFloat(document.getElementById('radio_exterior').value);
+            const radioInterior = parseFloat(document.getElementById('radio_interior').value);
+            const conductividad = parseFloat(document.getElementById('conductividad').value);
+            const longitud = parseFloat(document.getElementById('longitud').value);
+            const tempExterior = parseFloat(document.getElementById('temperatura_exterior').value);
+            const tempInterior = parseFloat(document.getElementById('temperatura_interior').value);
+
+            // Realizar los cálculos (aquí puedes implementar la fórmula correspondiente)
+            const transferenciaCalor = (2 * Math.PI * conductividad * longitud * (tempExterior - tempInterior)) / Math.log(radioExterior - radioInterior); // Reemplaza esto con la fórmula real
+
+            // Mostrar el resultado en la página
+            document.getElementById('output').innerHTML = `<p>Qᵣᵣₕ= ${transferenciaCalor} Watts</p>`;
+        }
+    </script>
+
+</body>
+</html>
+
+<!--  \n 
+            ${radioExterior} \n 
+            ${radioInterior} \n 
+            ${conductividad} \n 
+            ${longitud} \n 
+            ${tempExterior} \n
+            ${tempInterior} \n  -->

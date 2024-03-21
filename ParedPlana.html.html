@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Transmisión de Calor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: url('Default_coordenadas_rectangulares_en_el_calculo_de_flujo_de_ca_1.jpg') center/cover no-repeat; /* Reemplaza 'tu_imagen.jpg' con la URL de tu imagen */
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #resultado {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Cálculo de Transmisión de Calor</h1>
+
+    <label for="conductividad">Conductividad térmica (W/mK):</label>
+    <input type="number" id="conductividad" placeholder="Ingrese la conductividad térmica">
+
+    <label for="area">Área de la pared (m²):</label>
+    <input type="number" id="area" placeholder="Ingrese el área de la pared">
+
+    <label for="espesor">Espesor de la pared (m):</label>
+    <input type="number" id="espesor" placeholder="Ingrese el espesor de la pared">
+
+    <label for="temperatura1">Temperatura interior (°C):</label>
+    <input type="number" id="temperatura1" placeholder="Ingrese la temperatura interior">
+
+    <label for="temperatura2">Temperatura exterior (°C):</label>
+    <input type="number" id="temperatura2" placeholder="Ingrese la temperatura exterior">
+
+    <button onclick="calcularTransmision()">Calcular</button>
+
+    <div id="resultado"></div>
+
+    <script>
+        function calcularTransmision() {
+            var conductividad = parseFloat(document.getElementById('conductividad').value);
+            var area = parseFloat(document.getElementById('area').value);
+            var espesor = parseFloat(document.getElementById('espesor').value);
+            var temperatura1 = parseFloat(document.getElementById('temperatura1').value);
+            var temperatura2 = parseFloat(document.getElementById('temperatura2').value);
+
+            var diferenciaTemperatura = temperatura1 - temperatura2;
+
+            if (!isNaN(conductividad) && !isNaN(area) && !isNaN(espesor) && !isNaN(temperatura1) && !isNaN(temperatura2)) {
+                var Qₓ = (conductividad * area * diferenciaTemperatura) / espesor;
+                document.getElementById('resultado').innerHTML = 'Qₓ= ' +  Qₓ .toFixed(2) + ' Watts';
+            } else {
+                document.getElementById('resultado').innerHTML = 'Por favor, ingrese valores numéricos en todos los campos.';
+            }
+        }
+    </script>
+
+</body>
+</html>

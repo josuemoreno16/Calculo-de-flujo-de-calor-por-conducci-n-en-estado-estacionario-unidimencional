@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculo de flujo de calor</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: url('Imagentransfercalor.jpg.jpg') center/cover no-repeat; /* Reemplaza 'tu_imagen.jpg' con la URL de tu imagen */
+        }
+
+        .recuadro {
+            width: 200px;
+            height: 100px;
+            border: 1px solid #000;
+            margin: 10px;
+            text-align: center;
+            line-height: 100px;
+            cursor: pointer;
+            border-radius: 45% / 100%;
+            background-color: rgba(251, 241, 241, 0.8); /* Fondo semitransparente para mejorar la legibilidad del texto */
+        }
+
+        h1 {
+                      
+               font-family:verdana;
+               font-size:30px;
+             color:white;
+             text-shadow: 1px  0px 0px black,
+               0px  1px 0px black,
+              -1px  0px 0px black,
+               0px -1px 0px black;
+
+            color: #7ff723; /* Color del texto blanco para mejorar la legibilidad en el fondo oscuro */
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculo de flujo de calor por conducción en estado estacionario unidimensional</h1>
+
+    <div class="recuadro" onclick="redireccionar('file:///C:/Users/yoshi/Downloads/Proyectos%20escolares/Calculo%20de%20flujo%20de%20calor%20por%20conducci%C3%B3n%20en%20estado%20estacionario%20unidimencional/ParedPlana.html.html')">Coordenadas Rectangular</div>
+    <div class="recuadro" onclick="redireccionar('file:///C:/Users/yoshi/Downloads/Proyectos%20escolares/Calculo%20de%20flujo%20de%20calor%20por%20conducci%C3%B3n%20en%20estado%20estacionario%20unidimencional/Cilindro.html.html')">Coordenadas Cilíndricas</div>
+    <div class="recuadro" onclick="redireccionar('file:///C:/Users/yoshi/Downloads/Proyectos%20escolares/Calculo%20de%20flujo%20de%20calor%20por%20conducci%C3%B3n%20en%20estado%20estacionario%20unidimencional/Esfericas.html.html')">Coordenadas Esféricas</div>
+    <h1>Autor Luis Josué Moreno Reyes, diciembre 2023</h1>
+    <h1>Ing. Electromecánica</h1>
+    <h1>TecNM: Campus Zacatecas </h1>
+    <h1>Arriba el America</h1>
+    <script>
+        function redireccionar(url) {
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>
